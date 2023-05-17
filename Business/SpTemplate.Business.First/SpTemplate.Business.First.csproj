@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Common\Common.Libs\Common.Libs.csproj" />
+      <ProjectReference Include="..\..\Core\SpRepo\SpRepo.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Handlers\Commands" />
+      <Folder Include="Models\Reponses\Commands" />
+      <Folder Include="Models\Requests\Commands" />
+      <Folder Include="Services\Abstraction" />
+      <Folder Include="Services\Implementation" />
+      <Folder Include="Utils\Abstraction" />
+      <Folder Include="Utils\Implementation" />
+      <Folder Include="Validators\Commands" />
+    </ItemGroup>
+
+</Project>

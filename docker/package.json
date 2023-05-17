@@ -1,0 +1,22 @@
+{
+  "name": "docker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "run:local": "docker-compose -f 'docker-compose.yml' up -d --build --force-recreate --remove-orphans",
+    "down:local": "docker-compose -f 'docker-compose.yml' down && git pull",
+    "list:images": "docker image ls",
+    "list:containers": "docker container ls",
+    "list:volumes": "docker volume ls",
+    "cert:wind": "dotnet dev-certs https -ep %USERPROFILE%\\.aspnet\\https\\aspnetapp.pfx -p Reikas81",
+    "cert:mac": "dotnet dev-certs https -ep ${HOME}/.aspnet/https/aspnetapp.pfx -p Reikas81",
+    "build:first": "docker-compose -f 'docker-compose.yml' up --build --force-recreate --no-deps -d sp-template-first",
+    "clean:images" : "docker image prune",
+    "clean:containers" : "docker container prune",
+    "clean:volumes" : "docker volume prune"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,49 @@
+version: "3.9"
+services:
+  
+  sp-template-first:
+    build:
+      context: ../
+      dockerfile: First.Dockerfile
+    image: sp-template-first
+    container_name: sp-template-first
+    hostname: sp-template-first
+    ports:
+      - "5007:5007"
+    depends_on:
+      - mongo-db
+    links:
+      - mongo-db
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Docker"
+      DOTNET_RUNNING_IN_CONTAINER: "true"
+      ASPNETCORE_URLS: http://+:5007
+      ASPNETCORE_Kestrel__Certificates__Default__Password: Reikas81
+      ASPNETCORE_Kestrel__Certificates__Default__Path: /https/aspnetapp.pfx
+    volumes:
+      - ~/.aspnet/https:/https:ro
+
+  mongo-seed:
+    build:
+      context: ./mongo-seed
+      dockerfile: Dockerfile
+    links:
+      - mongo-db
+    depends_on:
+      - mongo-db
+    volumes:
+      - ./mongo-seed:/mongo-seed
+
+  mongo-db:
+    image: mongo
+    restart: always
+    container_name: mongo-db
+    hostname: mongo-db
+    ports:
+      - 27013:27017
+    command: /usr/bin/mongod --bind_ip_all --journal --dbpath /data/db
+    volumes:
+      - "./data/mongo-data:/data/db"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
