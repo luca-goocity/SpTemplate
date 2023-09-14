@@ -9,9 +9,9 @@
     <ItemGroup>
       <PackageReference Include="Microsoft.AspNetCore.ResponseCaching" Version="2.2.0" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
-      <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
       <PackageReference Include="Preview.OutputCaching" Version="0.0.2-preview" />
-      <PackageReference Include="StackExchange.Redis" Version="2.6.80" />
+      <PackageReference Include="StackExchange.Redis" Version="2.6.122" />
     </ItemGroup>
 
     <ItemGroup>
